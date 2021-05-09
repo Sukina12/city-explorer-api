@@ -1,7 +1,8 @@
 const superagent = require('superagent');
 require('dotenv').config();
+const { query } = require('express');
+const inMemory = require('./cache')
 
-const MOVIE_DB_API_URL = process.env.MOVIE_DB_API_URL;
 const MOVIE_DB_API_KEY = process.env.MOVIE_DB_API_KEY;
 
 
@@ -14,14 +15,21 @@ class Movie {
 }
 
 const handleMovie = (req, res) => {
-  try {
-    const movieDbURL = `${MOVIE_DB_API_URL}?api_key=${MOVIE_DB_API_KEY}&query=${req.query.query}&limit=10`;
-    superagent.get(movieDbURL).then(movieDbData => {
-      const formatData = movieDbData.body.results.map(data=> new Movie(data));
+  const MOVIE_DB_API_URL = process.env.WEATHER_BIT_API_URL;
+  const querParams = {
+    key: MOVIE_DB_API_KEY,
+    query: req.query.query
+  };
+  if (inMemory[query]) {
+    console.log('cache hit, get movie from cache');
+    res.status(200).send(inMemory[query]);
+  } else {
+    superagent.get(MOVIE_DB_API_URL).query(querParams).then(movieData => {
+      const formatData = movieData.body.results.map(result => new Movie(result));
+      console.log(' we got the movie from the api');
+      inMemory[query] = formatData;
       res.send(formatData);
-    });
-  } catch (err) {
-    console.log(err);
+    }).catch(err => res.send(err));
   }
 };
 
