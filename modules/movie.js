@@ -13,7 +13,8 @@ class Movie {
     this.title = data.original_title;
     this.img = data.poster_path;
     this.releasedDate = data.release_date;
-    this.description = data.overview
+    this.description = data.overview;
+    this.releasedDate = data.release_date;
   }
 }
 
