@@ -27,10 +27,13 @@ I will begin building My own custom API server, which will provide data for the 
 [dotenv](https://www.npmjs.com/package/dotenv)
 [Express](https://expressjs.com/)
 
+
+********************************************************************************************
+
 Time Estimates
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
-Name of feature:API
+Name of feature:API-lab8
 Estimate of time needed to complete:2 hours
 
 Start time:12:00am
@@ -38,3 +41,25 @@ Start time:12:00am
 Finish time: 1:30 am
 
 Actual time needed to complete: 1.5 hours
+
+*************************************************************************************
+
+Name of feature:seperate the files - lab9
+Estimate of time needed to complete:2 hours
+
+Start time:10:00pm
+
+Finish time:12:00 am
+
+Actual time needed to complete: 2 hours
+
+****************************************************************************************
+
+Name of feature:cache - lab10
+Estimate of time needed to complete:2 hours
+
+Start time:11:00pm
+
+Finish time:01:30 am
+
+Actual time needed to complete: 2.5 hours
